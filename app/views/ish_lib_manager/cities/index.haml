@@ -1,5 +1,11 @@
 
 
 .row
-  .large-12.columns
-    a
+  .small-12.columns
+    %h1
+      = t('cities.list')
+      (#{@cities.length})
+      = link_to '[+]', new_city_path
+    %ul
+      - @cities.each do |city|
+        %li= city.inspect

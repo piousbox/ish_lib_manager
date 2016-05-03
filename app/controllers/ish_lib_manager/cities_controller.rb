@@ -11,8 +11,6 @@ class IshLibManager::CitiesController < IshLibManager::ApplicationController
     @cities = City.all.to_a
     @city = City.new
     @photo = Photo.new
-
-    render :action => 'empty', :layout => 'application_ok'
   end
   
   def show

@@ -6,17 +6,17 @@ PATH
       rails (~> 4.2.6)
 
 PATH
+  remote: /home/piousbox/projects/microsites/ish_lib_assets
+  specs:
+    ish_lib_assets (0.1.2)
+      rails (~> 4.2.6)
+
+PATH
   remote: /home/piousbox/projects/microsites/ish_lib_engine
   specs:
     ish_lib_engine (0.0.1)
       devise
       mongoid
-      rails (~> 4.2.6)
-
-PATH
-  remote: /home/piousbox/projects/microsites/ish_lib_travel
-  specs:
-    ish_lib_travel (0.0.1)
       rails (~> 4.2.6)
 
 GEM
@@ -160,9 +160,9 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  ish_lib_assets!
   ish_lib_engine!
   ish_lib_manager!
-  ish_lib_travel!
   rspec
   sqlite3
 

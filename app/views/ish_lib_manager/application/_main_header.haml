@@ -1,0 +1,58 @@
+
+.main-header.row
+  .small-12.columns
+    %ul.vertical.medium-horizontal.menu
+      %li One
+      %li Two
+      %li Three
+      
+  .hide
+    .title-bar{ 'data-responsive-toggle' => 'example-menu', 'data-hide-for' => 'medium' }
+      %button.menu-icon{ :type => 'button', 'data-toggle' => true }
+      .title-bar-title Menu
+      
+    .top-bar#example-menu
+      .top-bar-left
+        %ul.dropdown.menu{ 'data-dropdown-menu' => true }
+          %li.menu-text Site Title
+          %li
+            = link_to 'One', '/'
+            %ul.menu-vertical
+              %li= link_to 'One', '#'
+              %li= link_to 'Two', '#'
+              %li= link_to 'Three', '#'
+      .top-bar-right
+        %ul.menu
+          %li
+            %input{ :type => 'search', :placeholder => 'Search' }
+          %li
+            %button.button{ :type => 'button'} Search
+      
+    %ul
+      %li= link_to 'Home', root_path
+      %li
+        Organizer
+        %ul.hide
+          %li Scratchpad
+          %li Days
+          %li Addressbook
+
+      %li
+        = link_to '[+]', new_city_path
+        = link_to t('cities.list'), cities_path
+        (#{City.all.length})
+        %ul.hide
+          %li Communities
+          %li Events
+          %li
+            Venues
+            %ul
+              %li Reviews
+
+      %li Galleries
+      %li Reports
+      %li Sites
+      %li Tags
+      %li Users
+      
+%hr

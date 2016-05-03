@@ -1,6 +1,7 @@
 
 module IshLibManager
   class ApplicationController < ActionController::Base
+    layout 'ish_lib_manager/application'
   end
 end
 
