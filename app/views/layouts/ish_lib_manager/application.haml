@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title
+      = @page_title
+      \| Manager
+    = stylesheet_link_tag 'ish_lib_manager/application', :media => 'all'
+    = javascript_include_tag 'ish_lib_manager/application'
+    = favicon_link_tag 'favicons/manager.ico'
+    = csrf_meta_tags
+    %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
+  %body
+    .main-header.row
+      .large-8.columns
+        %ul
+          %li= link_to 'Home', root_path
+    %hr
+    
+    = yield
+    
+    %hr
+    ^__^
