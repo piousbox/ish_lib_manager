@@ -11,7 +11,9 @@
     %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
   %body
     = render 'ish_lib_manager/application/main_header'
-    = yield
+    .row
+      .small-12.columns
+        = yield
     -# = render 'ish_lib_manager/application/main_footer'
     %hr
     ^__^

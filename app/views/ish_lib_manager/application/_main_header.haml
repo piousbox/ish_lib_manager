@@ -1,10 +1,16 @@
 
 .main-header.row
-  .small-12.columns
+  .small-1.columns
+    = image_tag 'icons/32x32/manager.png'
+  .small-11.columns
     %ul.vertical.medium-horizontal.menu
-      %li One
-      %li Two
-      %li Three
+      %li
+        = link_to 'Organizer', '#'
+        %ul.menu.vertical
+          %li= link_to 'Scratchpad', '#'
+          %li= link_to 'Days', '#'
+          %li= link_to 'Address book', '#'
+      %li= link_to 'Cities', cities_path
       
   .hide
     .title-bar{ 'data-responsive-toggle' => 'example-menu', 'data-hide-for' => 'medium' }
@@ -25,6 +31,7 @@
         %ul.menu
           %li
             %input{ :type => 'search', :placeholder => 'Search' }
+
           %li
             %button.button{ :type => 'button'} Search
       

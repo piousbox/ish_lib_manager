@@ -11,9 +11,12 @@
 // about supported directives.
 //
 //= require_tree .
-// require jquery
-//
+//= require jquery/jquery
+//= require what-input
+//= require foundation/foundation
 //
 //
 
-$(document).foundation();
+$(document).ready(function() {
+  $(document).foundation();
+});
