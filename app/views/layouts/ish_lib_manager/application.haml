@@ -1,5 +1,5 @@
 !!!
-%html
+%html.no-js{ :dir => 'ltr' }
   %head
     %title
       = @page_title
@@ -9,11 +9,12 @@
     = favicon_link_tag 'favicons/manager.ico'
     = csrf_meta_tags
     %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
+    %meta{ :charset => "utf-8" }
+    %meta{ 'http-equiv' => "x-ua-compatible", :content => "ie=edge" }
   %body
     = render 'ish_lib_manager/application/main_header'
     .row
       .small-12.columns
         = yield
-    -# = render 'ish_lib_manager/application/main_footer'
-    %hr
-    ^__^
+    = render 'ish_lib_manager/application/main_footer'
+    

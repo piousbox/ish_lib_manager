@@ -1,65 +1,27 @@
 
-.main-header.row
-  .small-1.columns
-    = image_tag 'icons/32x32/manager.png'
-  .small-11.columns
-    %ul.vertical.medium-horizontal.menu
+#example-menu.top-bar
+  .top-bar-left
+    %ul.dropdown.menu{"data-dropdown-menu" => ""}
+      %li.menu-text= link_to 'Manager', root_path
       %li
-        = link_to 'Organizer', '#'
+        %a{:href => "#"} Organizer
         %ul.menu.vertical
-          %li= link_to 'Scratchpad', '#'
-          %li= link_to 'Days', '#'
-          %li= link_to 'Address book', '#'
-      %li= link_to 'Cities', cities_path
-      
-  .hide
-    .title-bar{ 'data-responsive-toggle' => 'example-menu', 'data-hide-for' => 'medium' }
-      %button.menu-icon{ :type => 'button', 'data-toggle' => true }
-      .title-bar-title Menu
-      
-    .top-bar#example-menu
-      .top-bar-left
-        %ul.dropdown.menu{ 'data-dropdown-menu' => true }
-          %li.menu-text Site Title
           %li
-            = link_to 'One', '/'
-            %ul.menu-vertical
-              %li= link_to 'One', '#'
-              %li= link_to 'Two', '#'
-              %li= link_to 'Three', '#'
-      .top-bar-right
-        %ul.menu
+            %a{:href => "#"} Scratchpad
           %li
-            %input{ :type => 'search', :placeholder => 'Search' }
-
+            %a{:href => "#"} Days
           %li
-            %button.button{ :type => 'button'} Search
-      
-    %ul
-      %li= link_to 'Home', root_path
+            %a{:href => "#"} Address Book
       %li
-        Organizer
-        %ul.hide
-          %li Scratchpad
-          %li Days
-          %li Addressbook
-
+        = link_to 'Cities', cities_path
+        %ul.menu.vertical
+          %li= link_to 'New', new_city_path
       %li
-        = link_to '[+]', new_city_path
-        = link_to t('cities.list'), cities_path
-        (#{City.all.length})
-        %ul.hide
-          %li Communities
-          %li Events
-          %li
-            Venues
-            %ul
-              %li Reviews
-
-      %li Galleries
-      %li Reports
-      %li Sites
-      %li Tags
-      %li Users
-      
-%hr
+        = link_to 'Galleries', galleries_path
+        %ul.menu.vertical
+          %li= link_to 'New', new_gallery_path
+          %li= link_to 'Thumbs', '#'
+      %li= link_to 'Reports', reports_path
+      %li= link_to 'Sites', sites_path
+      %li= link_to 'Tags', tags_path
+      %li= link_to 'Users', users_path

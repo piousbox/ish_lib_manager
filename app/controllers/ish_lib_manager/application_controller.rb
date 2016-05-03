@@ -2,6 +2,18 @@
 module IshLibManager
   class ApplicationController < ActionController::Base
     layout 'ish_lib_manager/application'
+
+    def set_lists
+      @tags_list = Tag.all.list
+      @sites_list = Site.all.list
+      @cities_list = City.all.list
+      @venues_list = Venue.all.list
+      @users_list = User.all.list
+    
+      @reports_list = Report.all.list
+      @galleries_list = Gallery.all.list
+      @videos_list = Video.all.list
+    end
   end
 end
 

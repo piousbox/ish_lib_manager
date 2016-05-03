@@ -1,14 +1,15 @@
 
 .row
   .large-12.columns
-    %h1 Manager Galleries List
+    %h1 Galleries
 
     = paginate @galleries, :param_name => :galleries_page
     %ul
       - @galleries.each do |gallery|
         %li
-          = link_to '[~]', edit_manager_gallery_path( gallery )
-          = link_to gallery.name, manager_gallery_path( gallery )
+          = link_to '[~]', edit_gallery_path( gallery )
+          = link_to gallery.name, gallery_path( gallery )
+          (#{gallery.photos.length})
           %br
           - gallery.photos.each_with_index do |photo, idx|
             - if idx < 8
