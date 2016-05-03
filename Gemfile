@@ -17,4 +17,7 @@ gem 'haml'
 
 group :test, :development, :development_production, :util do
   gem 'ish_lib_engine',  :path => '/home/piousbox/projects/microsites/ish_lib_engine'
+  gem 'ish_lib_travel',  :path => '/home/piousbox/projects/microsites/ish_lib_travel'
+  gem 'rspec'
+  
 end
