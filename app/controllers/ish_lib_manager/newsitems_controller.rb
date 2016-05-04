@@ -1,5 +1,5 @@
 
-class Manager::NewsitemsController < Manager::ManagerController
+class IshLibManager::NewsitemsController < IshLibManager::ApplicationController
 
   def new
     authorize! :new, ManagerNewsitem.new
@@ -38,6 +38,11 @@ class Manager::NewsitemsController < Manager::ManagerController
   end
 
   def destroy
+    @site = Site.find params[:site_id]
+    @newsitem = @site.newsitems.find params[:id]
+    authorize! :destroy, @newsitem
+    @newsitem.remove
+    redirect_to site_path( @site.id )
   end
 
   def update
