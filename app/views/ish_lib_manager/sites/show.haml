@@ -1,28 +1,28 @@
 
 .sites-show
   .row
-    .large-12.columns
+    .small-12.columns
       %h1
         Site http://#{@site.domain}/#{@site.lang}
         = link_to '[~]', edit_site_path( @site.id )
   .row
-    .large-6.columns
+    .small-12.large-6.columns
       = render 'ish_lib_manager/galleries/index', :galleries => @galleries
-    .large-6.columns
+    .small-12.large-6.columns
       = render 'ish_lib_manager/reports/index', :reports => @reports
 
   .row
-    .large-6.columns
-      -# = render 'ish_lib_manager/videos/index', :videos => @videos
-    .large-6.columns
-      -# = render 'ish_lib_manager/tags/index', :tags => @tags
+    .small-12.large-6.columns
+      = render 'ish_lib_manager/videos/index', :videos => @videos
+    .small-12.large-6.columns
+      = render 'ish_lib_manager/tags/index', :tags => @tags
       
   .row
-    .large-12.columns
-      -# = render 'ish_lib_manager/features/index', :features => @features, :site => @site
+    .small-12.columns
+      = render 'ish_lib_manager/features/index', :features => @features, :site => @site
 
   .row
-    .large-12.columns
+    .small-12.columns
       %h4 Newsitems (#{@newsitems.length})
       
       %ol
@@ -31,4 +31,4 @@
             %ul
               %li= button_to '[Delete]', site_newsitem_path(@site.id, newsitem.id), :method => :delete, :data => { :confirm => 'Are you sure?' }, :confirm => 'Are you really sure?'
             = render 'newsitems/item', :newsitem => newsitem
-      = paginate @newsitems, :param_name => 'newsitems_page'
+      = paginate @newsitems, :param_name => 'newsitems_page', :views_prefix => 'ish_lib_manager'

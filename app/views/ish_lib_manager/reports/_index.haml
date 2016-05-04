@@ -4,7 +4,7 @@
     .large-12.columns
       %h2 Reports (#{reports.length})
 
-      = paginate reports, :param_name => :reports_page
+      = paginate reports, :param_name => :reports_page, :views_prefix => 'ish_lib_manager'
       %ol
         - reports.each do |report|
           %li
@@ -13,4 +13,4 @@
             = link_to report.name, report_path( report )
             - if report.subhead && report.subhead.length > 3
               .subhead= report.subhead
-      = paginate reports, :param_name => :reports_page
+      = paginate reports, :param_name => :reports_page, :views_prefix => 'ish_lib_manager'

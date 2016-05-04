@@ -4,9 +4,9 @@
     .large-12.columns
       %h2 Tags (#{tags.length})
 
-      = paginate tags, :param_name => :tags_page
+      = paginate tags, :param_name => :tags_page, :views_prefix => 'ish_lib_manager'
       %ol
         - tags.each do |tag|
           %li= tag.name
-      = paginate tags, :param_name => :tags_page
+      = paginate tags, :param_name => :tags_page, :views_prefix => 'ish_lib_manager'
 

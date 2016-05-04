@@ -1,12 +1,15 @@
 
-.manager-features--index
-  %h2 Features (#{features.length})
+.features--index
+  .row
+    .small-12.columns
+      %h2 Features (#{features.length})
+      = paginate features, :param_name => 'features_page', :views_prefix => 'ish_lib_manager'
 
-  = paginate features, :param_name => 'features_page'
-  %ul.large-block-grid-4
+  .row.small-up-2.medium-up-3.large-up-4
     - features.each_with_index do |feature, idx|
-      %li
-        = link_to '[~]', edit_manager_site_feature_path( site.id, feature.id )
-        = link_to '[x]', manager_site_feature_path( site.id, feature.id ), :method => :delete, :data => { :confirm => 'Are you sure?' }
-        .item= render 'manager/features/item', :feature => feature
+      .column
+        .callout
+          = link_to '[~]', edit_site_feature_path( site.id, feature.id )
+          = link_to '[x]', site_feature_path( site.id, feature.id ), :method => :delete, :data => { :confirm => 'Are you sure?' }
+          .item= render 'features/item', :feature => feature
          

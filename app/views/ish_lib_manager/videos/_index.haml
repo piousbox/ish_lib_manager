@@ -4,9 +4,9 @@
     .large-12.columns
       %h2 Videos (#{videos.length})
 
-      = paginate videos, :param_name => :videos_page
+      = paginate videos, :param_name => :videos_page, :views_prefix => 'ish_lib_manager'
       %ol
         - videos.each do |video|
           %li= video.name
-      = paginate videos, :param_name => :videos_page
+      = paginate videos, :param_name => :videos_page, :views_prefix => 'ish_lib_manager'
 
