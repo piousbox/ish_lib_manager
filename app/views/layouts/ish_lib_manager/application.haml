@@ -16,26 +16,7 @@
     
     .row
       .small-12.columns
-        
-        - if flash[:notice]
-          %br
-          .callout{ 'data-closable' => '' }
-            = flash[:notice]
-            %button.close-button{ 'aria-label' => 'Dismiss alert', :type => 'button', 'data-close' => '' }
-              %span{ 'aria-hidden' => 'true' } &times;
-        - if flash[:error]
-          %br
-          .callout.alert{ 'data-closable' => '' }
-            = flash[:error]
-            %button.close-button{ 'aria-label' => 'Dismiss alert', :type => 'button', 'data-close' => '' }
-              %span{ 'aria-hidden' => 'true' }&times;
-        - if flash[:alert] # cancan does this
-          %br
-          .callout.alert{ 'data-closable' => '' }
-            = flash[:alert]
-            %button.close-button{ 'aria-label' => 'Dismiss alert', :type => 'button', 'data-close' => '' }
-              %span{ 'aria-hidden' => 'true' }&times;
-
+        = render 'flash_messages'
         = yield
         
     = render 'ish_lib_manager/application/main_footer'
