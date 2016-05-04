@@ -13,7 +13,8 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
-gem 'haml'
+# gem 'haml'
+# gem 'devise'
 
 group :test, :development, :development_production, :util do
   gem 'ish_lib_engine',  :path => '/home/piousbox/projects/microsites/ish_lib_engine'
@@ -21,5 +22,7 @@ group :test, :development, :development_production, :util do
   # gem 'ish_lib_travel',  :path => '/home/piousbox/projects/microsites/ish_lib_travel'
   
   gem 'rspec'
+  gem 'rspec-core'
+  gem 'simplecov'
   
 end

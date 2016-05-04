@@ -52,7 +52,9 @@ class Ability
 
       can [ :new, :create ], Video
 
-      # manager, group_id 1
+      #
+      # manager    group_id 1
+      # moderator  group_id 2
       #
       if user[:group_id] <= 2        
         can [ :manage ], CitiesUser
@@ -100,52 +102,11 @@ class Ability
     ### applies to all users
     ###
     
-    can [ :index, :show ], City
-
-    can [ :render_partial ], AuxModel
-    
-    can [ :new ], Event
-
-    can [ :index, :search, :not_found, :set_show_style, :new ], Gallery
-    can [ :show ], Gallery do |g|
-      g.is_public && !g.is_trash
-    end
-
     can [ :error500, :search ], Manager
 
-    # has to be outside user auth b/c the uploading component is ajax.
-    can [ :new, :create, :index, :do_upload, :not_found ], Photo
-    can [ :show ], Photo do |photo|
-      photo.is_public && !photo.is_trash
-    end
-    
-    can [ :search, :not_found, :new, :index ], Report
-    can [ :show ], Report do |r|
-      r.is_public && !r.is_trash
-    end
+    can [ :create_missing ],  Site
 
-    can [ :new ], Review
-       
-    can [ :show, :newsitems, :features, :newsitems, :create_missing, :register ],  Site do |s|
-      !s.is_private
-    end
-
-    can [ :index ], Tag
-    can [ :show ], Tag do |t|
-      true
-    end
-
-    can [ :resume, :reports, :galleries, :report, :gallery,
-      :sign_in, :sign_up, :sign_out, :logout,
-      :index, :show, :not_found, :github, :about ], User
-    can [ :report ], User do |r|
-      r.is_public && !r.is_trash
-    end
-    
-    can [ :new, :index, :show, :not_found ], Venue
-
-    can [ :index, :show, :view ], Video
-
+    can [ :home ], Welcome
   end
 end
 

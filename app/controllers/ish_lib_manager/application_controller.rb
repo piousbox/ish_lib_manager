@@ -14,6 +14,14 @@ module IshLibManager
       @galleries_list = Gallery.all.list
       @videos_list = Video.all.list
     end
+
+    # cancan
+    check_authorization
+    rescue_from CanCan::AccessDenied do |exception|
+      puts! exception, 'cancan exception is'
+      redirect_to root_url, :alert => exception.message
+    end
+    
   end
 end
 

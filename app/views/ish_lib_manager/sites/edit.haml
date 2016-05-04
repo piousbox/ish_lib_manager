@@ -1,8 +1,7 @@
 
 .row
   .large-12.columns
-    Edit site http://#{@site.domain}/#{@site.lang}
-    %br
-    %br
+    %h1
+      Editing site http://#{@site.domain}/#{@site.lang}
       
-= render 'manager/sites/form', :site => @site
+= render 'ish_lib_manager/sites/form', :site => @site

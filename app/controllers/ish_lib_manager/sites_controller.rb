@@ -1,23 +1,26 @@
 
-class Manager::SitesController < Manager::ManagerController
+class IshLibManager::SitesController < IshLibManager::ApplicationController
 
   PERMITTED_ATTRIBUTES = [ :domain, :lang, :title, :subhead, :homepage_layout, :layout,
                            :n_features, :n_newsitems, :is_trash, :is_ads_enabled, :is_private,
                            :home_redirect_path, :is_video_enabled, :is_resume_enabled, :is_primary
                          ]
   
-  
   def index
+    authorize! :index, Site
     @sites = Site.all.order_by( :domainname => :desc, :lang => :desc )
   end
 
   def trash
+    authorize! :trash, Site
     @sites = Site.unscoped.where( :is_trash => true ).order_by( :domainname => :desc, :lang => :desc )
     render :action => :index
   end
 
   def show
     @site = Site.find params[:id]
+    authorize! :show, @site
+    
     @galleries = @site.galleries.unscoped.where({ :is_trash => false }).page( params[:galleries_page] ).per( 10 )
     @reports = @site.reports.unscoped.where({ :is_trash => false }).page( params[:reports_page] ).per( 10 )
     @videos = @site.videos.page( params[:videos_page] ).per( 5 )
@@ -28,7 +31,7 @@ class Manager::SitesController < Manager::ManagerController
 
   def edit
     @site = Site.find params[:id]
-    authorize! :update, @site
+    authorize! :edit, @site
   end
   
   def new
@@ -56,12 +59,13 @@ class Manager::SitesController < Manager::ManagerController
     else
       flash[:error] = 'No Luck'
     end
-    redirect_to manager_sites_path
+    redirect_to sites_path
   end
 
   def newsitem_delete    
     @site = Site.find params[:site_id]
-    authorize! :update, @site  
+    authorize! :update, @site
+    
     n = @site.newsitems.find( params[:newsitem_id] )
     n.delete
     @site.save
