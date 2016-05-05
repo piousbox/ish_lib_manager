@@ -1,5 +1,5 @@
 
-class Manager::TagsController < Manager::ManagerController
+class IshLibManager::TagsController < IshLibManager::ApplicationController
 
   before_filter :set_lists
 

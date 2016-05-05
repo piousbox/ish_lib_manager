@@ -1,4 +1,7 @@
 
+## this is not part of ish_lib_manager, is it?
+
+=begin
 require 'spec_helper'
 
 describe Users::RegistrationsController do
@@ -23,3 +26,4 @@ describe Users::RegistrationsController do
   # end
 
 end
+=end

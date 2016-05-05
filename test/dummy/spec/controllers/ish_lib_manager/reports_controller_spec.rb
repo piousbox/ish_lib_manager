@@ -1,7 +1,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Manager::ReportsController, :type => :controller do
+RSpec.describe IshLibManager::ReportsController, :type => :controller do
   
   before :each do
     setup_users

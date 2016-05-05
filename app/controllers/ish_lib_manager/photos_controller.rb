@@ -1,5 +1,5 @@
 
-class Manager::PhotosController < Manager::ManagerController
+class IshLibManager::PhotosController < IshLibManager::ApplicationController
 
   def without_gallery
     @photos = Photo.unscoped.where( :gallery => nil, :is_trash => false )

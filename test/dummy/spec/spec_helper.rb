@@ -73,6 +73,7 @@ Paperclip.options[:log] = false
 #     text around open: "->\n\n\n</span>\n</div>\n<section class='left"
 #     text around close: "'1'>\n</noscript>\n</body>\n</html>\n"
 # But the HTML seems to be valid (in this aspects) using a HTML validator.
+=begin
 ActionDispatch::Assertions::SelectorAssertions.class_eval do
   alias_method :assert_select_original, :assert_select
   def assert_select(*args, &block)
@@ -82,7 +83,8 @@ ActionDispatch::Assertions::SelectorAssertions.class_eval do
     $-v = original_verbosity # and restore after execute assert_select
   end
 end
-  
+=end
+
 def puts! args, label=""
   puts "+++ +++ #{label}"
   puts args.inspect

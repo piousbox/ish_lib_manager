@@ -1,7 +1,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Manager::WelcomeController, :type => :controller do
+RSpec.describe IshLibManager::WelcomeController, :type => :controller do
 
   render_views
 

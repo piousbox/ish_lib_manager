@@ -1,7 +1,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Manager::PhotosController, :type => :controller do
+RSpec.describe IshLibManager::PhotosController, :type => :controller do
 
   render_views
 

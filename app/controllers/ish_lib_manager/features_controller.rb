@@ -1,5 +1,5 @@
 
-class Manager::FeaturesController < Manager::ManagerController
+class IshLibManager::FeaturesController < IshLibManager::ApplicationController
 
   before_filter :set_lists
   

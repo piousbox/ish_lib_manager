@@ -1,7 +1,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Manager::FeaturesController, :type => :controller do
+RSpec.describe IshLibManager::FeaturesController, :type => :controller do
 
   render_views
 

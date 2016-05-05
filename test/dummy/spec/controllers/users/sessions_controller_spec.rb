@@ -1,4 +1,6 @@
 
+## probably not part of ish_lib_manager
+=begin
 require 'spec_helper'
 
 describe Users::SessionsController do
@@ -23,3 +25,4 @@ describe Users::SessionsController do
   end
 
 end
+=end

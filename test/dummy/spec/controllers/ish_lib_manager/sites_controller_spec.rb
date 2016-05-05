@@ -1,7 +1,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Manager::SitesController, :type => :controller do
+RSpec.describe IshLibManager::SitesController, :type => :controller do
 
   render_views
 

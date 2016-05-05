@@ -1,7 +1,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Manager::TagsController, :type => :controller do
+RSpec.describe IshLibManager::TagsController, :type => :controller do
 
   render_views
 

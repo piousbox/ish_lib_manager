@@ -1,23 +1,83 @@
 source 'https://rubygems.org'
 
-# Declare any dependencies that are still in development here instead of in
-# your gemspec. These might include edge Rails or gems from your path or
-# Git. Remember to move these dependencies to your gemspec before releasing
-# your gem to rubygems.org.
+gem 'rails', '~> 4.2'
+gem "core_extensions", "~> 0.0.4"
+gem 'activesupport'
+gem 'activeresource'
 
-# To use a debugger
-# gem 'byebug', group: [:development, :test]
+gem 'aws-sdk', '< 2.0'
+gem "aws-s3",            :require => "aws/s3"
 
+gem 'mongoid', '4.0.2'
+gem 'mongoid-history'
+gem 'bson'
+gem "moped", github: "mongoid/moped"
+gem 'mongoid_paranoia', :github => 'simi/mongoid-paranoia'
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'mongo_session_store-rails4'
+
+gem 'paperclip', ['>= 3.4', '!= 4.3.0']
+gem 'kaminari'
 gem 'haml'
+gem 'formtastic'
+# gem 'coffee-filter'
+gem 'jquery-rails'
+gem 'jbuilder'
+gem 'libv8', '~> 3.11.8'
+gem 'therubyracer', :require => 'libv8'
+gem 'nokogiri', '~> 1.6'
 gem 'devise'
+gem 'cancan', '~> 1.5'
+gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+gem "recaptcha",         :require => "recaptcha/rails"
+gem 'unicorn'
+gem 'passenger'
+gem 'tzinfo'
+gem 'eventmachine'
+gem 'newrelic_rpm'
+gem 'actionpack-page_caching'
+gem 'actionpack-action_caching'
+gem 'jwt'
+
+group :test do
+  gem 'rspec-rails'
+  gem 'rspec'
+  gem 'rspec-mocks'
+  gem 'factory_girl_rails'  
+  gem 'shoulda'
+  gem 'shoulda-matchers'
+  gem 'ruby-prof'
+  gem 'simplecov', :require => false
+end
+
+group :development, :development_production, :test do
+  gem 'net-ssh', '2.4.0'
+  gem 'capybara'
+  gem 'quiet_assets'
+  gem 'thin'
+  gem 'delayed_job_mongoid'
+  gem 'hpricot'
+  gem 'ruby_parser'
+end
 
 group :test, :development, :development_production, :util do
-  gem 'ish_lib_engine',  :path => '/home/piousbox/projects/microsites/ish_lib_engine'
-  gem 'ish_lib_assets',  :path => '/home/piousbox/projects/microsites/ish_lib_assets'
-  # gem 'ish_lib_travel',  :path => '/home/piousbox/projects/microsites/ish_lib_travel'
+  gem 'simple-rss', :git => "git://github.com/piousbox/simple-rss.git"
+  gem 'htmlentities' # need with simple-rss
+  gem 'resque'
   
-  gem 'rspec'
-  gem 'rspec-core'
-  gem 'simplecov'
+  gem 'test-unit'
+  
+  gem 'ish_lib_engine',  :path => '/home/piousbox/projects/microsites/ish_lib_engine'
+  # gem 'ish_lib_manager', :path => '/home/piousbox/projects/microsites/ish_lib_manager'
+  gem 'ish_lib_assets', :path => '/home/piousbox/projects/microsites/ish_lib_assets'
+end
+
+group :assets, :development_production do
+  gem 'sass-rails',   '~> 4.0'
+  gem 'sass'
+  gem 'coffee-rails'
+  gem 'uglifier', '>= 1.0.3'
+  gem 'handlebars_assets'
+  gem 'sqlite3'
   
 end

@@ -1,7 +1,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Manager::NewsitemsController, :type => :controller do
+RSpec.describe IshLibManager::CitiesController, :type => :controller do
 
   render_views
 
@@ -10,15 +10,6 @@ RSpec.describe Manager::NewsitemsController, :type => :controller do
     sign_in :user, @manager
 
     setup_sites
-    #it 'should create new newsitem' do
-    #  old_n_newsitems = @city.newsitems.length
-    #  ( old_n_newsitems > 0 ).should eql true
-    #  newsitem = { :descr => 'newsiten new descr' }
-    #  post :create_newsitem, :city_id => @city.id, :newsitem => newsitem
-    #  response.should be_redirect
-    #  new_n_newsitems = City.find( @city.id ).newsitems.length
-    #  ( new_n_newsitems - 1 ).should eql old_n_newsitems
-    #end
 
     Report.all.each { |c| c.remove }
     @r1 = FactoryGirl.create :r1
@@ -49,13 +40,29 @@ RSpec.describe Manager::NewsitemsController, :type => :controller do
     @g = Gallery.create :name => 'a', :galleryname => 'bb', :user => User.all[0]
   end
 
-  describe 'city newsitems' do
-    it 'should GET new newsitem' do
-      get :new, :city_id => @city.id
+  it 'index' do
+    get :index
+    response.should be_success
+    assigns( :cities ).should_not eql nil
+  end
+
+  describe 'new' do
+    it 'should GET new' do
+      get :new, :locale => :en
       response.should be_success
     end
+  end
 
-  end  
+  it 'create' do
+    ;
+  end
 
-    
+  describe 'show' do
+    it 'should have n_reports, n_galleries' do
+      get :show, :id => @city.id
+      response.should be_success
+      response.should render_template('manager/cities/show')
+    end
+  end
+
 end

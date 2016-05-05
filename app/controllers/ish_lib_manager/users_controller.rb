@@ -1,5 +1,5 @@
 
-class Manager::UsersController < Manager::ManagerController
+class IshLibManager::UsersController < IshLibManager::ApplicationController
 
   def index
     @users = User.all
