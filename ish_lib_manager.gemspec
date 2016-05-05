@@ -20,6 +20,8 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.2.6"
   s.add_dependency 'haml', '~> 4.0.7'
   s.add_dependency 'devise'
+  s.add_dependency 'ish_lib_engine'
+  s.add_dependency 'ish_lib_assets'
   
   s.add_development_dependency "sqlite3"
 end
