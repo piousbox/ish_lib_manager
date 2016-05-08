@@ -1,19 +1,17 @@
 
-- content_for :title do
-  Manager Galleries Index
-
-- content_for :menu do
-  - # nothing
-
-.row
-  .large-6.columns
-    %h3.right
-      = t('galleries.list')
-      = link_to '[+]', manager_galleries_new_path
-  .large-6.columns
-    = render 'search'
-
-.row
-  .large-12.columns
-    = render 'manager/galleries/menu_secondary'
-    = render 'manager/galleries/list', :galleries => @galleries
+-#
+-#  manager galleries list OK _vp_ 20160507
+-#
+  
+%h1= t('galleries.list')
+= paginate @galleries, :param_name => :galleries_page, :views_prefix => :templates
+- @galleries.each do |gallery|
+  .callout
+    = link_to '[~]', edit_gallery_path( gallery )
+    = link_to gallery.name, gallery_path( gallery )
+    (#{gallery.photos.length})
+    %br
+    - gallery.photos.each_with_index do |photo, idx|
+      - if idx < 8
+        = image_tag photo.photo.url :thumb
+= paginate @galleries, :param_name => :galleries_page, :views_prefix => :templates

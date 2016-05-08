@@ -24,9 +24,10 @@ IshLibManager::Engine.routes.draw do
   end
 
   resources :galleries
-  get 'galleries_title', :to => 'galleries#index_title', :as => :galleries_title
-  get 'galleries_thumb', :to => 'galleries#index_thumb', :as => :galleries_thumb
-  get 'galleries_mini', :to => 'galleries#index_mini', :as => :galleries_mini
+  ## below, obsolete. Let's not have this complexity. _vp_ 20160507
+  # get 'galleries_title', :to => 'galleries#index_title', :as => :galleries_title
+  # get 'galleries_thumb', :to => 'galleries#index_thumb', :as => :galleries_thumb
+  # get 'galleries_mini', :to => 'galleries#index_mini', :as => :galleries_mini
 
   # photos
   get 'photos/without_gallery', :to => 'photos#without_gallery', :as => :photos_without_gallery

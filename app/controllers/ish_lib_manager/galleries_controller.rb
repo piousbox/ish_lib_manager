@@ -5,24 +5,21 @@ class IshLibManager::GalleriesController < IshLibManager::ApplicationController
   
   def index
     authorize! :index, Gallery
-    redirect_to galleries_thumb_path
+    @galleries = Gallery.unscoped.where( :is_trash => false ).order_by( :created_at => :desc ).page( params[:galleries_page] ).per( 10 )
   end
 
+=begin
   def index_title
     authorize! :index, Gallery
     @galleries = Gallery.unscoped.where( :is_trash => false ).order_by( :created_at => :desc )
-  end
-
-  def index_thumb
-    authorize! :index, Gallery
-    @galleries = Gallery.unscoped.where( :is_trash => false ).order_by( :created_at => :desc ).page( params[:galleries_page] ).per( 10 )
   end
 
   def index_mini
     authorize! :index, Gallery
     @galleries = Gallery.all
   end
-
+=end
+  
   def new
     authorize! :new, Gallery
     @gallery = Gallery.new
